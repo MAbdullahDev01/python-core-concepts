@@ -21,3 +21,18 @@ quantity : int = 3
 total_cost : float = quantity * float(price)
 
 print(f"{quantity} x {item_name} = ${total_cost}")
+
+# Exercise 2: Type Detective
+# Look at the following collection:
+
+# Python
+# mystery_bag = {10, "10", (10,), 10.0}
+# What Python data type is mystery_bag?
+
+# Print the length of mystery_bag. Is it 4, or something else? Why?
+
+mystery_bag : set = {10, "10", (10,), 10.0}
+# mystery_bag is a set
+
+print(mystery_bag)
+# length is 3 because set do not contain duplicates so 10.0 is dropped as 10 = 10.0
