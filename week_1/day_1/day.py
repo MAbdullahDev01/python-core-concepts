@@ -36,3 +36,20 @@ mystery_bag : set = {10, "10", (10,), 10.0}
 
 print(mystery_bag)
 # length is 3 because set do not contain duplicates so 10.0 is dropped as 10 = 10.0
+
+# Exercise 3: The Secret Agent Slicer
+# You received an encrypted coordinates string from headquarters:
+
+# Python
+# secret_msg = "X99A-40.7128,-74.0060-OMEGA"
+# Extract just the latitude and longitude ("40.7128,-74.0060") by slicing the string.
+
+# Use a string method to split that slice into a list containing two strings: ['40.7128', '-74.0060'].
+
+# Convert those string values into a tuple of two floats: (40.7128, -74.0060).
+
+secret_msg = "X99A-40.7128,-74.0060-OMEGA"
+latitude = float(secret_msg[5:12])
+longitude = float(secret_msg[13:21])
+coordinates = (latitude, longitude)
+print(coordinates)
