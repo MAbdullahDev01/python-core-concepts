@@ -53,3 +53,23 @@ latitude = float(secret_msg[5:12])
 longitude = float(secret_msg[13:21])
 coordinates = (latitude, longitude)
 print(coordinates)
+
+# Exercise 4: The Locked Vault
+# Consider the following data structures:
+
+# Python
+# combo_list = [1, 2, 3]
+# combo_tuple = (1, 2, 3)
+# Try to change the second element (index 1) of combo_list to 99. Print the list.
+
+# Try to change the second element of combo_tuple to 99.
+
+# Write down a brief explanation of the error message you receive and what it teaches you about lists vs. tuples.
+
+combo_list : list = [1, 2, 3]
+combo_tuple : tuple = (1, 2, 3)
+combo_list[1] = 99
+print(combo_list)
+#combo_tuple[1] = 99 TypeError: 'tuple' object does not support item assignment
+print(combo_tuple)
+# Lists can be edited but tuples cannot
