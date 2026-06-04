@@ -10,8 +10,8 @@
 # If age is between 18 and 20 (inclusive), print "Enter, but no drinking."
 
 # If age is 21 or older, print "Access Granted. Enjoy!"
-
-if age := int(input("Enter your age: ")) < 18:
+age = int(input("Enter your age: "))
+if age < 18:
     print("Access Denied.")
 elif age > 21:
     print("Access Granted. Enjoy!")
@@ -52,3 +52,21 @@ squared_above_ten : list[int] = [num**2 for num in numbers if num > 10]
 #         count += 1
 
 print(squared_above_ten)
+
+# Exercise 4: Grade Book Classifier
+# You have a dictionary of student names and their numeric scores:
+
+# Python
+# scores = {"Alice": 88, "Bob": 55, "Charlie": 92, "Diana": 68}
+# Use a Dictionary Comprehension to create a new dictionary called grade_book.
+
+# The keys should remain the students' names.
+
+# The values should be "Pass" if the score is 70 or above, and "Fail" if the score is below 70.
+
+# Print grade_book. (Expected: {'Alice': 'Pass', 'Bob': 'Fail', 'Charlie': 'Pass', 'Diana': 'Fail'})
+
+scores = {"Alice": 88, "Bob": 55, "Charlie": 92, "Diana": 68}
+
+grade_book : dict = {name : "Pass" if scores[name] >= 70 else "Fail" for name in scores }
+print(grade_book)
