@@ -103,3 +103,52 @@ for book in new_arrivals:
     if book not in stock:
         stock[book] = 1
 print(stock)
+
+# Exercise 6: The Data Normalizer
+# You are handed raw, messy data from an old database API. It looks like this:
+
+# Python
+# raw_data = [
+#     ("user1", "  active  ", "105"),
+#     ("user2", "INACTIVE", "0"),
+#     ("user1", "active", "15"), # Duplicate user!
+#     ("user3", "  Active ", "42")
+# ]
+# Write a script that processes raw_data into a clean, searchable dictionary called clean_users.
+
+# Rules for processing:
+
+# No Duplicates: If a username has already been processed, add the new points to their existing points.
+
+# Clean Strings: User statuses must be completely lowercase and stripped of all whitespace (e.g., "  active  " becomes "active").
+
+# Correct Types: Points must be stored as integers, not strings.
+
+# The final output should look exactly like this:
+
+# Python
+# {
+#     "user1": {"status": "active", "points": 120},
+#     "user2": {"status": "inactive", "points": 0},
+#     "user3": {"status": "active", "points": 42}
+# }
+
+raw_data = [
+    ("user1", "  active  ", "105"),
+    ("user2", "INACTIVE", "0"),
+    ("user1", "active", "15"), # Duplicate user!
+    ("user3", "  Active ", "42")
+]
+
+processed_data = {}
+
+for user, status, points in raw_data:
+    cleaned_status = status.lower().strip()
+    int_points = int(points)
+    
+    if user not in processed_data:
+        processed_data[user] = {"status" : cleaned_status, "points" : int_points}
+    else:
+        processed_data[user]["points"] += int_points
+        
+print(processed_data)
