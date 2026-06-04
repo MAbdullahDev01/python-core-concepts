@@ -13,7 +13,7 @@
 age = int(input("Enter your age: "))
 if age < 18:
     print("Access Denied.")
-elif age > 21:
+elif age >= 21:
     print("Access Granted. Enjoy!")
 else:
     print("Enter, but no drinking.")
@@ -93,3 +93,31 @@ for guest in guests:
         continue
     else:
         print(f"Welcome, {guest}!")
+
+# Exercise 6: The Data Cleaner & Validator
+# You are processing a stream of user-submitted text messages. You need to flag messages that are too long, but you also need to store their lengths for a report.
+
+# Python
+# messages = [
+#     "Hello friend",
+#     "This is a reminder that your subscription is expiring tomorrow morning",
+#     "Omw",
+#     "Please send the document as soon as you get a chance to look at it"
+# ]
+# Your Task:
+# Write a for loop that iterates through messages. Inside the loop, use an if statement combined with the walrus operator to:
+
+# Calculate the length of the string and assign it to a variable length at the exact same time you check if it is greater than 20 characters.
+
+# If it is greater than 20, print a warning showing the length: f"Warning: Message too long ({length} chars)".
+
+messages = [
+    "Hello friend",
+    "This is a reminder that your subscription is expiring tomorrow morning",
+    "Omw",
+    "Please send the document as soon as you get a chance to look at it"
+]
+
+for message in messages:
+    if (length := len(message)) > 20:
+        print(f"Warning: Message too long ({length} chars)")
