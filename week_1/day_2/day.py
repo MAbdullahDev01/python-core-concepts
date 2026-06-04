@@ -70,3 +70,26 @@ scores = {"Alice": 88, "Bob": 55, "Charlie": 92, "Diana": 68}
 
 grade_book : dict = {name : "Pass" if scores[name] >= 70 else "Fail" for name in scores }
 print(grade_book)
+
+# Exercise 5: The VIP Gatekeeper
+# You have a list of guests arriving at a party:
+
+# Python
+# guests = ["Alex", "Becca", "CHUCK", "Dave", "REDACTED", "Emma"]
+# Write a for loop to process the guests:
+
+# If a guest's name is all uppercase (like "CHUCK"), skip them using the continue statement.
+
+# If a guest's name is "REDACTED", stop the party entirely using the break statement.
+
+# Otherwise, print f"Welcome, {guest}!".
+
+guests = ["Alex", "Becca", "CHUCK", "Dave", "REDACTED", "Emma"]
+
+for guest in guests:
+    if guest == "REDACTED":
+        break
+    elif guest.isupper():
+        continue
+    else:
+        print(f"Welcome, {guest}!")
