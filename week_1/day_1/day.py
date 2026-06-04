@@ -73,3 +73,33 @@ print(combo_list)
 #combo_tuple[1] = 99 TypeError: 'tuple' object does not support item assignment
 print(combo_tuple)
 # Lists can be edited but tuples cannot
+
+# Exercise 5: The Inventory Merger
+# You manage a bookstore. You have a dictionary of current stock and a list of newly arrived books.
+
+# Python
+# stock = {"The Hobbit": 5, "1984": 2, "Gatsby": 0}
+# new_arrivals = ["1984", "Dune", "1984", "The Hobbit", "Dune", "Dune"]
+# Filter the new_arrivals list using a set to get a collection of unique new book titles.
+
+# Update the stock dictionary using the new_arrivals list:
+
+# If a book is already in stock, increment its count by how many times it appears in new_arrivals.
+
+# If a book is not in stock, add it with its correct count.
+
+# Print the final stock dictionary. (Expected output: {'The Hobbit': 6, '1984': 4, 'Gatsby': 0, 'Dune': 3})
+
+stock = {"The Hobbit": 5, "1984": 2, "Gatsby": 0}
+new_arrivals = ["1984", "Dune", "1984", "The Hobbit", "Dune", "Dune"]
+
+new_arrivals_set : set = set(new_arrivals)
+print(new_arrivals_set)
+
+for book in new_arrivals:
+    for title in stock:
+        if title == book:
+            stock[title] += 1
+    if book not in stock:
+        stock[book] = 1
+print(stock)
