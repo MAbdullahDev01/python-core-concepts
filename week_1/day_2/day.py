@@ -29,3 +29,26 @@ count = 5
 while count >= 1:
     print(count)
     count -=1
+
+# Exercise 3: The Filter & Square
+# You have a list of raw numbers:
+
+# Python
+# numbers = [2, 5, 8, 11, 14, 17, 20]
+# Write a standard for loop that iterates through numbers.
+
+# Inside the loop, check if a number is greater than 10.
+
+# If it is, square it (multiply it by itself) and append it to a new list called squared_above_ten.
+
+# Print the final list. (Expected: [121, 196, 289, 400])
+
+numbers = [2, 5, 8, 11, 14, 17, 20]
+
+squared_above_ten : list[int] = [num**2 for num in numbers if num > 10]
+# for num in numbers:
+#     if num > 10:
+#         squared_above_ten.append(num**2)
+#         count += 1
+
+print(squared_above_ten)
