@@ -17,3 +17,15 @@ elif age > 21:
     print("Access Granted. Enjoy!")
 else:
     print("Enter, but no drinking.")
+
+# Exercise 2: The Custom Countdown
+# Write a while loop that starts at 5 and counts down to 1, printing each number.
+
+# After the loop finishes, print "Blast off!".
+
+# Rewatch your logic: ensure the loop doesn't run infinitely!
+
+count = 5
+while count >= 1:
+    print(count)
+    count -=1
