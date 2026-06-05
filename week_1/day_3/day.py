@@ -55,3 +55,28 @@ def build_user_profile(first_name, last_name, **kwargs):
     print(data)
 
 build_user_profile("Jane", "Doe", role="Engineer", location="NYC")
+
+# Exercise 4: The Scope Trap
+# Look at this code snippet. Predict what it will print before running it, and explain why. Then, modify the function so it successfully increases the global counter by 1.
+
+# Python
+# counter = 0
+
+# def increment_counter():
+#     counter = counter + 1
+#     print(f"Inside function: {counter}")
+
+# increment_counter()
+# print(f"Outside function: {counter}")
+
+# the second print statement will show 0 as the global counter value doesn't change
+
+counter = 0
+
+def increment_counter():
+    global counter
+    counter = counter + 1
+    print(f"Inside function: {counter}")
+
+increment_counter()
+print(f"Outside function: {counter}")
