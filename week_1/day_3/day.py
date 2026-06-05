@@ -38,3 +38,20 @@ def multiply_all(*args):
     return total
 
 print(multiply_all(2,3,4))
+
+# Exercise 3: The Profile Builder (kwargs)
+# Write a function called build_user_profile that accepts a user's first_name and last_name as required arguments, but accepts any other details as keyword arguments.
+
+# Use kwargs to capture the extra details.
+
+# The function should return a dictionary containing all the information combined.
+# Example input: build_user_profile("Jane", "Doe", role="Engineer", location="NYC")
+# Expected output: {'first_name': 'Jane', 'last_name': 'Doe', 'role': 'Engineer', 'location': 'NYC'}
+
+def build_user_profile(first_name, last_name, **kwargs):
+    data = {"first_name" : first_name, "last_name" : last_name}
+    for key, value in kwargs.items():
+        data[key] = value 
+    print(data)
+
+build_user_profile("Jane", "Doe", role="Engineer", location="NYC")
