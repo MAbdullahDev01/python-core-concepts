@@ -18,3 +18,23 @@ def make_coffee(size : str, milk_type : str ="whole milk"):
 
 make_coffee("Large", "oat milk")
 make_coffee("Medium")
+
+# Exercise 2: The Multi-Calculator (*args)
+# Write a function called multiply_all that can take any number of numeric arguments and multiply them all together.
+
+# Use *args to accept a flexible amount of numbers.
+
+# If no arguments are passed, the function should return 0.
+
+# Otherwise, return the product of all numbers.
+# Example usage: multiply_all(2, 3, 4) should return 24.
+
+def multiply_all(*args):
+    if not args:
+        return 0
+    
+    total = 1
+    for num in args: total *= num
+    return total
+
+print(multiply_all(2,3,4))
