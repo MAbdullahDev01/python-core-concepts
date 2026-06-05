@@ -80,3 +80,21 @@ def increment_counter():
 
 increment_counter()
 print(f"Outside function: {counter}")
+
+# Exercise 5: The String Reverser
+# While you can easily reverse a string in Python using slicing (string[::-1]), doing it with recursion is a great brain workout.
+
+# Write a recursive function called recursive_reverse(text).
+
+# Base Case: If the string is empty or has a length of 1, just return the string.
+
+# Recursive Case: Return the last character of the string, plus the result of passing the rest of the string back into recursive_reverse.
+
+# Example flow: recursive_reverse("cat") becomes "t" + recursive_reverse("ca"), and so on.
+
+def recursive_reverse(text):
+    new_str = ""
+    if not text or len(text) == 1:
+        return text
+    return text[-1] + recursive_reverse(text[:-1])
+print(recursive_reverse("Hello"))
