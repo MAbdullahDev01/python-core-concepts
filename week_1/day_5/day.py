@@ -22,3 +22,19 @@ with open(journal_path, "r") as file:
         print(line)
     else:
         print("Empty file.")
+
+# Exercise 2: The Log Accumulator
+# Imagine you are building a logging system. If you use "w" mode, you overwrite the old logs. We need to use append mode ("a").
+
+# Create a loop that asks the user to input a log message. If they type "exit", the loop should stop.
+
+# For any other input, open a file named app.log in append mode and write the user's input on a new line.
+
+# Run the script, type a few lines, exit, and run it again. Check app.log to confirm the older lines were preserved!
+
+log_path = r"D:\projects\python-core-concepts\week_1\day_5\app.log"
+message = input("Enter a message: ")
+while message != "exit":
+    with open(log_path, "a") as file:
+        file.write(message + "\n")
+    message = input("Enter a message: ")
