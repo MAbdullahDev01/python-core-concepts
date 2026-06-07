@@ -41,3 +41,37 @@ file_paths = ["notes.txt", "todo.txt", "logs.txt"]
 for file in file_paths:
     file_path = q / file
     file_path.touch()
+
+# Exercise 3: The Session Logger
+# You need to save a user's login session configuration data to a file, including the exact time they logged in.
+
+# Python
+# import json
+# from datetime import datetime
+
+# session_data = {
+#     "username": "coder_42",
+#     "access_level": "Admin",
+#     "login_time": datetime.now() # This will cause an issue!
+# }
+# If you try to run json.dumps(session_data), Python will throw a TypeError. Why?
+
+# Fix the login_time value by converting the datetime object into a standardized string format using .strftime() (e.g., "2026-06-06 21:30:00").
+
+# Save the updated dictionary into a file named session.json using json.dump().
+
+import json
+from datetime import datetime
+
+session_data = {
+    "username": "coder_42",
+    "access_level": "Admin",
+    "login_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+}
+
+json_string = json.dumps(session_data)
+json_file_path = Path(r"D:\projects\python-core-concepts\week_1\day_4\session.json")
+if not json_file_path.exists():
+    json_file_path.touch()
+with open(json_file_path, "w") as file:
+    file.write(json_string)
