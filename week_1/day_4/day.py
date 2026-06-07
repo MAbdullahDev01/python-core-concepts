@@ -71,7 +71,51 @@ session_data = {
 
 json_string = json.dumps(session_data)
 json_file_path = Path(r"D:\projects\python-core-concepts\week_1\day_4\session.json")
-if not json_file_path.exists():
-    json_file_path.touch()
-with open(json_file_path, "w") as file:
-    file.write(json_string)
+if not json_file_path.exists(): json_file_path.touch()
+with open(json_file_path, "w") as file: file.write(json_string)
+
+# Exercise 4: The Environment Reporter
+# Write a script named sys_report.py that gathers information about the environment it is running in and saves it as a clean report.
+
+# Your Task:
+
+# Use sys to capture:
+
+# The version of Python currently running (sys.version).
+
+# The operating system platform (sys.platform).
+
+# Any command-line arguments passed to the script (sys.argv).
+
+# Use pathlib to find the absolute path of the directory where your script is living.
+
+# Bundle all of this information into a dictionary:
+
+# Python
+# report = {
+#     "python_version": ...,
+#     "os_platform": ...,
+#     "script_directory": ..., # Must be a string, not a Path object!
+#     "arguments_passed": ...
+# }
+# Save this dictionary as env_report.json.
+
+# To test the master level: Run your script from the terminal while passing extra arguments, like this:
+
+# Bash
+# python sys_report.py --verbose --debug
+# Open your generated JSON file to ensure --verbose and --debug were successfully captured inside the data!
+
+import sys
+
+report = {
+    "python_version" : sys.version,
+    "os_platform" : sys.platform,
+    "script_directory" : str(Path(__file__).resolve()),
+    "arguments_passed" : sys.argv
+}
+
+report_file_path = Path(r"D:\projects\python-core-concepts\week_1\day_4\env_report.json")
+report_json = json.dumps(report)
+if not report_file_path.exists(): report_file_path.touch()
+with open(report_file_path, "w") as file: file.write(report_json)
