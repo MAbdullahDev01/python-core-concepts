@@ -38,3 +38,43 @@ while message != "exit":
     with open(log_path, "a") as file:
         file.write(message + "\n")
     message = input("Enter a message: ")
+
+# Exercise 3: The High Score Tracker
+# You are building a game and need to save player scores.
+
+# Python
+# import json
+
+# # Your starting data
+# leaderboard = {
+#     "Player1": 2500,
+#     "Player2": 1800,
+#     "Player3": 1200
+# }
+# Save the leaderboard dictionary into a file named scores.json using json.dump(). Ensure you use the indent=4 argument to make the file human-readable.
+
+# Now, write a separate block of code that opens scores.json in read mode, loads the data back into a Python dictionary using json.load(), updates "Player2"'s score to 2100, and adds a new player ("Player4": 950).
+
+# Save this updated dictionary back into scores.json.
+
+import json
+from pathlib import Path
+
+# Your starting data
+leaderboard = {
+    "Player1": 2500,
+    "Player2": 1800,
+    "Player3": 1200
+}
+
+scores_file_path = Path(r"D:\projects\python-core-concepts\week_1\day_5\scores.json")
+if not scores_file_path.exists(): scores_file_path.touch()
+with open(scores_file_path, "w") as file:
+    json.dump(leaderboard, file, indent=4)
+
+with open(scores_file_path, "r") as file:
+    data = json.load(file)
+data["Player2"] = 2100
+data["Player4"] = 950
+with open(scores_file_path, "w") as file:
+    json.dump(data, file, indent=4)
